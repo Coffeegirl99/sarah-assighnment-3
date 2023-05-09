@@ -1,4 +1,4 @@
-package com.coderscampus.userValidation;
+package com.coderscampus.service;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,12 +17,12 @@ public class UserService {
 			
 			System.out.println("Enter your email:");
 			
-			Scanner scanner = new Scanner(System.in);
-			String userInput = scanner.nextLine();
-			
-			System.out.println("Enter your password:");
-			userInput = scanner.nextLine();
-			
+			try (Scanner scanner = new Scanner(System.in)) {
+				String userInput = scanner.nextLine();
+				
+				System.out.println("Enter your password:");
+				userInput = scanner.nextLine();
+			}
 			while ((data = fileReader.readLine()) != null) {
 				String[] userArray = data.split(",");
 				String username = userArray[0];
@@ -39,13 +39,5 @@ public class UserService {
 				}
 			}
 		}
-	}
-
-	private User createJobs(String username, String password, String name) {
-		User users = new User();
-		users.setUsername(username);
-		users.setPassword(password);
-		users.setName(name);
-		return users;
 	}
 }
