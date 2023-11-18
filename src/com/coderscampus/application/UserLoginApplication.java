@@ -25,7 +25,7 @@ public class UserLoginApplication {
 		try (Scanner scanner = new Scanner(System.in)) {
 			int userAttempts = 0;
 
-			while (userAttempts <= 5) {
+			while (userAttempts <= 4) {
 				System.out.println("Enter your email:");
 				String userInputEmail = scanner.nextLine();
 				System.out.println("Enter your password:");
